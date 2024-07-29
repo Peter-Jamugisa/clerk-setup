@@ -42,7 +42,7 @@ const NavBar = () => {
               <div>
                 <Link href="/">
                   <p className="text-xl md:text-3xl lg:text-3xl">
-                    The Organ Academy
+                    One Experience
                   </p>
                 </Link>
               </div>
