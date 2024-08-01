@@ -14,8 +14,8 @@ const UserDashboard: React.FC = () => {
   useEffect(() => {
     // Simulate fetching broadcasts from an API
     const fetchedBroadcasts = [
-      { id: "1", title: "Morning Yoga Session", started: false },
-      { id: "2", title: "Tech News", started: false },
+      { id: "1", title: "faith", started: false },
+      { id: "2", title: "hearing God", started: false },
     ];
     setBroadcasts(fetchedBroadcasts);
   }, []);
@@ -28,7 +28,7 @@ const UserDashboard: React.FC = () => {
       );
       setBroadcasts(updatedBroadcasts);
       setShowPopup(true);
-    }, 5000);
+    }, 5000000000000000000000);
 
     return () => clearTimeout(timer);
   }, [broadcasts]);
