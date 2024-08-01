@@ -1,6 +1,7 @@
 "use client";
 
 import "@fortawesome/fontawesome-free/css/all.css";
+import { Protect, UserButton } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -14,6 +15,8 @@ import { Menu } from "lucide-react";
 import Image from "next/image";
 
 import CardImage from "@/public/next.svg";
+import ProtectedButton from "../Protected";
+import { checkRole } from "@/utils/roles";
 
 const NavBar = () => {
   return (
@@ -29,7 +32,7 @@ const NavBar = () => {
           <div className="mt-7 p-4 md:p-5 flex md:flex-row justify-between items-center ">
             <div className="flex items-center gap-4 text-background text-white font-bold text-3xl mb-2 md:mb-0 lg:mr-4">
               <div>
-                <Link href="/">
+                {/* <Link href="/">
                   <Image
                     alt="together"
                     src={CardImage}
@@ -37,7 +40,7 @@ const NavBar = () => {
                     height={40}
                     className="rounded-full"
                   />
-                </Link>
+                </Link> */}
               </div>
               <div>
                 <Link href="/">
@@ -55,31 +58,45 @@ const NavBar = () => {
                   <div className="text-lg">Home</div>
                 </Link>
               </div>
-                <div className="flex items-center space-x-1 text-background font-heavy">
-                  <i className="text-white fa-solid fa-circle-info"></i>
-
-                  <Link href="/admin/dashboard">
-                    <div className="text-lg">About</div>
-                  </Link>
-                </div>
-
               <div className="flex items-center space-x-1 text-background font-heavy">
-                <i className="text-white fa-solid fa fa-book"></i>
-                <Link href="/programs">
-                  <div className="text-lg">Programs</div>
+                <i className="text-white fa-solid fa-circle-info"></i>
+
+                <Link href="/user">
+                  <div className="text-lg">Service</div>
                 </Link>
               </div>
+
               <div className="flex items-center space-x-1 text-background font-heavy">
                 <i className="text-white fa-solid fa fa-camera"></i>
-                <Link href="/gallery">
-                  <div className="text-lg">Gallery</div>
+                <Link href="/recordings">
+                  <div className="text-lg">Recordings</div>
                 </Link>
               </div>
               <div className="flex items-center space-x-1 text-background font-heavy">
                 <i className="text-white fa-solid fa fa-rss-square"></i>
-                <Link href="/blog">
-                  <div className="text-lg">Blog</div>
+                {/* <Protect
+                    condition={(has) =>
+                      has({ role: "org:admin" })
+                    }
+                    fallback={
+                      <p>
+                        Only an Admin
+                      </p>
+                    }
+                  >
+                    <Button>hey</Button>
+                  </Protect> */}
+                  <Link href="/admin/dashboard">
+                <Protect
+                  permission="org:sys_profile:manage"
+                  fallback={<p>Only an Admin</p>}
+                >
+                  <Button>Admin</Button>
+                </Protect>
                 </Link>
+              </div>
+              <div>
+                <UserButton />
               </div>
             </div>
 
