@@ -1,9 +1,16 @@
 import React from 'react'
+import HomeDashboard from "@/components/homedashboard";
+import NavBar from '@/components/ui/Navbar';
 
-function Dashboard() {
+function Home() {
   return (
-    <div>Dashboard</div>
+    <div>
+      <NavBar/>
+      <div>
+        <HomeDashboard/>
+      </div>
+    </div>
   )
 }
 
-export default Dashboard
+export default Home
