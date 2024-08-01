@@ -22,14 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return(
-  <ClerkProvider>
+  <ClerkProvider >
     <html lang='en'>
       <body>
         <SignedOut>
-          <SignInButton />
+          {/* <SignInButton /> */}
         </SignedOut>
         <SignedIn>
-          <UserButton />
+          {/* <UserButton /> */}
         </SignedIn>
         {children}
       </body>
