@@ -37,10 +37,10 @@ function Records() {
     <div>
       <NavBar />
       <div className="container mx-auto p-4 mt-40">
-        <h1 className="text-2xl font-bold mb-4">Records</h1>
+        <h1 className="text-4xl font-bold mb-4">Recordings</h1>
         {RecordsData.map((group) => (
           <div key={group.name} className="mb-6">
-            <h2 className="text-xl font-semibold mb-2">{group.name}</h2>
+            <h2 className="text-2xl font-bold mb-2">{group.name}</h2>
             {group.Records.map((Record) => (
               <div
                 key={Record.id}
