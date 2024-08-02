@@ -28,7 +28,7 @@ const UserDashboard: React.FC = () => {
       );
       setBroadcasts(updatedBroadcasts);
       setShowPopup(true);
-    }, 5000000000000000000000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, [broadcasts]);
@@ -38,8 +38,8 @@ const UserDashboard: React.FC = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold mb-4">User Dashboard</h1>
+    <div className="p-6 bg-gray-100 min-h-screen mt-40">
+      <h1 className="text-4xl font-bold mb-4">User Dashboard</h1>
 
       {showPopup && (
         <>
