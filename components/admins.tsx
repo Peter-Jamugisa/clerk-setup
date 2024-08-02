@@ -53,9 +53,9 @@ const Admins: React.FC = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen my-10">
-      <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
-      <div className="flex justify-between gap-10">
+    <div className="p-6 bg-gray-100 min-h-screen my-10 ">
+      <h1 className="text-2xl font-bold mb-4 flex justify-center md:justify-start">Admin Dashboard</h1>
+      <div className="flex flex-col md:flex-row justify-between gap-10">
         <div className="flex flex-col items-center justify-center ml-10">
           <div className="mb-4">
             <button
@@ -107,7 +107,7 @@ const Admins: React.FC = () => {
               } text-white rounded`}
               disabled={isPlayingAudio}
             >
-              Play Background Audio
+              Play Audio
             </button>
             <button
               onClick={handleStopAudio}
@@ -116,13 +116,13 @@ const Admins: React.FC = () => {
               } text-white rounded`}
               disabled={!isPlayingAudio}
             >
-              Stop Background Audio
+              Stop Audio
             </button>
           </div>
         </div>
-        <div className="bg-white p-4 rounded shadow h-[400px] w-[400px] mr-20">
+        <div className="bg-white p-4 rounded shadow h-[350px] w-[350px] md:h-[400px] md:w-[400px] mr-20">
           <h2 className="text-xl font-semibold mb-2">Schedule Broadcast</h2>
-          <Calendar onChange={handleDateChange} value={broadcastDate} />
+          <Calendar onChange={handleDateChange} value={broadcastDate} className="" />
         </div>
       </div>
 
