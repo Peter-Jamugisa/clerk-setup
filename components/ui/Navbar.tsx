@@ -74,25 +74,13 @@ const NavBar = () => {
               </div>
               <div className="flex items-center space-x-1 text-background font-heavy">
                 <i className="text-white fa-solid fa fa-rss-square"></i>
-                {/* <Protect
-                    condition={(has) =>
-                      has({ role: "org:admin" })
-                    }
-                    fallback={
-                      <p>
-                        Only an Admin
-                      </p>
-                    }
+                <Link href="/admin/dashboard">
+                  <Protect
+                    permission="org:sys_profile:manage"
+                    fallback={<p className="text-lg">Only an Admin</p>}
                   >
-                    <Button>hey</Button>
-                  </Protect> */}
-                  <Link href="/admin/dashboard">
-                <Protect
-                  permission="org:sys_profile:manage"
-                  fallback={<p>Only an Admin</p>}
-                >
-                  <Button>Admin</Button>
-                </Protect>
+                    <Button>Admin</Button>
+                  </Protect>
                 </Link>
               </div>
               <div>
@@ -100,21 +88,6 @@ const NavBar = () => {
               </div>
             </div>
 
-            <div className="hidden md:flex text-white flex-row space-x-4 items-center">
-              <Link href="/login">
-                {/* <Button variant="default" className="rounded-3xl">
-                  Login
-                </Button> */}
-              </Link>
-              <Link href="/signup">
-                {/* <Button
-                  variant="secondary"
-                  className="bg-blue-300 hover:bg-blue-400 text-white rounded-3xl"
-                >
-                  Register
-                </Button> */}
-              </Link>
-            </div>
             <DropdownMenu>
               <DropdownMenuTrigger className="lg:hidden">
                 <Menu color="white" />
@@ -123,17 +96,21 @@ const NavBar = () => {
                 <Link href="/">
                   <DropdownMenuItem>Home</DropdownMenuItem>
                 </Link>
-                <Link href="/about">
-                  <DropdownMenuItem>About</DropdownMenuItem>
+                <Link href="/user">
+                  <DropdownMenuItem>Service</DropdownMenuItem>
                 </Link>
-                <Link href="/programs">
-                  <DropdownMenuItem>Program</DropdownMenuItem>
+                <Link href="/recordings">
+                  <DropdownMenuItem>Recordings</DropdownMenuItem>
                 </Link>
-                <Link href="/gallery">
-                  <DropdownMenuItem>Gallery</DropdownMenuItem>
-                </Link>
-                <Link href="/blog">
-                  <DropdownMenuItem>Blog</DropdownMenuItem>
+                <Link href="/admin/dashboard">
+                  <DropdownMenuItem>
+                    <Protect
+                      permission="org:sys_profile:manage"
+                      fallback={<p className="">Only an Admin</p>}
+                    >
+                      <Button>Admin</Button>
+                    </Protect>
+                  </DropdownMenuItem>
                 </Link>
               </DropdownMenuContent>
             </DropdownMenu>
