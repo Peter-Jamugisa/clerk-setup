@@ -24,9 +24,9 @@ export default async function AdminDashboard(params: {
     <>
       <NavBar />
 
-      <div className="mt-20">
-        <h1 className="text-3xl font-bold">This is the admin dashboard</h1>
-        <p className="text-lg font-bold">
+      <div className="mt-28 pb-4">
+        <h1 className="text-2xl md:text-4xl font-bold text-red-700 flex justify-center md:justify-start">This is the admin dashboard</h1>
+        <p className="text-lg font-bold flex text-center md:text-start">
           This page is restricted to users with the 'admin' role.
         </p>
       </div>
