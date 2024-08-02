@@ -20,8 +20,8 @@ export const SearchUsers = () => {
           router.push(pathname + "?search=" + queryTerm);
         }}
       >
-        <div className="flex items-center justify-between">
-          <div>
+        <div className="flex flex-col items-center justify-center md:justify-start gap-5">
+          <div className="flex flex-col items-center justify-center">
             <Label htmlFor="search" className="text-lg">Search for Users</Label>
             <Input id="search" name="search" type="text" />
           </div>
