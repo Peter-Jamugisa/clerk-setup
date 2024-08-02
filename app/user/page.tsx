@@ -5,7 +5,7 @@ const UserPage: React.FC = () => {
   return (
     <div>
       <NavBar/>
-      <div>
+      <div >
         <UserDashboard />
       </div>
     </div>
