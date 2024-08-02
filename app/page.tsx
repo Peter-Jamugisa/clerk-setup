@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { SignInButton } from "@clerk/nextjs";
+import { Protect, SignInButton } from "@clerk/nextjs";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
+import { Menu } from "lucide-react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,7 +29,7 @@ const Header = () => (
   <header className="bg-gray-100 py-4">
     <div className="container mx-auto flex justify-between items-center">
       <div className="text-xl font-bold">One Experience Radio</div>
-      <nav>
+      <nav className="hidden lg:flex lg:flex-row text-black items-center md:justify-center flex-grow space-x-4">
         <ul className="flex space-x-4">
           <li>
             <Link href="/home" className="text-gray-600">
@@ -49,6 +51,32 @@ const Header = () => (
           </li>
         </ul>
       </nav>
+      <DropdownMenu>
+              <DropdownMenuTrigger className="lg:hidden">
+                <Menu color="black" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <Link href="/">
+                  <DropdownMenuItem className="text-red-700">Home</DropdownMenuItem>
+                </Link>
+                <Link href="/user">
+                  <DropdownMenuItem className="text-red-700 ">Service</DropdownMenuItem>
+                </Link>
+                <Link href="/recordings">
+                  <DropdownMenuItem className="text-red-700">Recordings</DropdownMenuItem>
+                </Link>
+                <Link href="/admin/dashboard">
+                  <DropdownMenuItem className="text-red-700">
+                    <Protect
+                      permission="org:sys_profile:manage"
+                      fallback={<p className="text-red-700">Only an Admin</p>}
+                    >
+                      <Button>Admin</Button>
+                    </Protect>
+                  </DropdownMenuItem>
+                </Link>
+              </DropdownMenuContent>
+            </DropdownMenu>
     </div>
   </header>
 );
